@@ -13,6 +13,7 @@ module Pronto
       'github' => GithubFormatter,
       'github_pr' => GithubPullRequestFormatter,
       'gitlab' => GitlabFormatter,
+      'gitlab_mr' => GitlabMergeRequestFormatter,
       'json' => JsonFormatter,
       'checkstyle' => CheckstyleFormatter,
       'text' => TextFormatter,

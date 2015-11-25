@@ -37,10 +37,24 @@ module Pronto
           new_lineno == other.new_lineno
       end
 
+      def diff_old_lineno
+        (previous_line || line).old_lineno + 1
+      end
+
       private
 
       def blame
         @blame ||= patch.blame(new_lineno)
+      end
+
+      def all_lines
+        @all_lines ||= hunk.lines
+      end
+
+      def previous_line
+        @previous_line ||= all_lines[0..(position - 1)]
+          .reverse
+          .detect { |line| line.old_lineno != -1 }
       end
     end
   end
